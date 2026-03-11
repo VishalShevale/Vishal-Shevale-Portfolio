@@ -16,9 +16,7 @@
     --tag-bg: #f0ebe2;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
   body {
     background: var(--paper);
     color: var(--ink);
@@ -77,10 +75,7 @@
     color: var(--accent); margin-bottom: 20px;
     display: flex; align-items: center; gap: 10px;
   }
-  .hero-eyebrow::before {
-    content: ''; display: block;
-    width: 28px; height: 1px; background: var(--accent);
-  }
+  .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--accent); }
   h1 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(2.8rem, 5vw, 4.2rem);
@@ -90,8 +85,7 @@
   h1 em { color: var(--accent); font-style: normal; }
   .hero-sub {
     font-size: 1.05rem; color: var(--muted);
-    line-height: 1.75; margin-bottom: 40px;
-    max-width: 480px;
+    line-height: 1.75; margin-bottom: 40px; max-width: 480px;
   }
   .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
   .btn {
@@ -101,25 +95,15 @@
     cursor: pointer; transition: all 0.2s;
     text-decoration: none;
   }
-  .btn-primary {
-    background: var(--ink); color: var(--paper);
-    border: 2px solid var(--ink);
-  }
+  .btn-primary { background: var(--ink); color: var(--paper); border: 2px solid var(--ink); }
   .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
-  .btn-outline {
-    background: transparent; color: var(--ink);
-    border: 2px solid var(--border);
-  }
+  .btn-outline { background: transparent; color: var(--ink); border: 2px solid var(--border); }
   .btn-outline:hover { border-color: var(--ink); }
 
-  .hero-stats {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
-  }
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
   .stat-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 28px 24px;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 28px 24px;
     position: relative; overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
   }
@@ -129,8 +113,7 @@
   .stat-num {
     font-family: 'Playfair Display', serif;
     font-size: 2.4rem; font-weight: 900;
-    line-height: 1; letter-spacing: -0.03em;
-    margin-bottom: 6px;
+    line-height: 1; letter-spacing: -0.03em; margin-bottom: 6px;
   }
   .stat-num span { color: var(--accent); }
   .stat-label { font-size: 0.82rem; color: var(--muted); font-weight: 500; }
@@ -144,10 +127,7 @@
     color: var(--accent); margin-bottom: 14px;
     display: flex; align-items: center; gap: 10px;
   }
-  .section-label::before {
-    content: ''; display: block;
-    width: 20px; height: 1px; background: var(--accent);
-  }
+  .section-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
   h2 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(2rem, 3.5vw, 2.8rem);
@@ -158,7 +138,6 @@
   /* ABOUT */
   #about { background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .about-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: start; }
-  .about-aside {}
   .about-aside-label {
     font-size: 0.75rem; font-weight: 700;
     letter-spacing: 0.16em; text-transform: uppercase;
@@ -181,39 +160,25 @@
     display: grid; grid-template-columns: 200px 1fr;
     gap: 40px; padding: 40px 0;
     border-bottom: 1px solid var(--border);
-    position: relative;
   }
   .exp-item:first-child { padding-top: 0; }
+  .exp-item:last-child { border-bottom: none; }
   .exp-meta { padding-top: 4px; }
-  .exp-date {
-    font-size: 0.8rem; font-weight: 600;
-    color: var(--muted); letter-spacing: 0.04em;
-    text-transform: uppercase; margin-bottom: 8px;
-  }
-  .exp-company {
-    font-size: 0.88rem; font-weight: 600; color: var(--accent);
-  }
-  .exp-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.35rem; font-weight: 700;
-    margin-bottom: 14px; letter-spacing: -0.01em;
-  }
+  .exp-date { font-size: 0.8rem; font-weight: 600; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px; }
+  .exp-company { font-size: 0.88rem; font-weight: 600; color: var(--accent); }
+  .exp-title { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; margin-bottom: 14px; letter-spacing: -0.01em; }
   .exp-desc { color: #3a3530; font-size: 0.97rem; margin-bottom: 18px; }
   .exp-results { display: flex; flex-wrap: wrap; gap: 10px; }
-  .result-pill {
-    background: var(--ink); color: var(--paper);
-    padding: 5px 14px; border-radius: 4px;
-    font-size: 0.8rem; font-weight: 600;
-  }
-  .result-pill.light {
-    background: var(--tag-bg); color: var(--ink);
-    border: 1px solid var(--border);
-  }
+  .result-pill { background: var(--ink); color: var(--paper); padding: 5px 14px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; }
+  .result-pill.light { background: var(--tag-bg); color: var(--ink); border: 1px solid var(--border); }
+
+  /* MONTHLY */
+  #highlights { background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
   /* CASE STUDIES */
   #cases { background: var(--ink); color: var(--paper); }
   #cases h2 { color: var(--paper); }
-  #cases .section-label { color: #c8522a; }
+  #cases .section-label { color: var(--accent); }
   .cases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
   .case-card {
     background: rgba(255,255,255,0.04);
@@ -222,104 +187,67 @@
     transition: background 0.2s, transform 0.2s;
   }
   .case-card:hover { background: rgba(255,255,255,0.07); transform: translateY(-2px); }
-  .case-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem; font-weight: 900;
-    color: rgba(200,82,42,0.35);
-    line-height: 1; margin-bottom: 16px;
-  }
-  .case-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem; font-weight: 700;
-    margin-bottom: 12px; line-height: 1.3;
-    color: var(--paper);
-  }
+  .case-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: rgba(200,82,42,0.35); line-height: 1; margin-bottom: 16px; }
+  .case-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; line-height: 1.3; color: var(--paper); }
   .case-problem { font-size: 0.88rem; color: rgba(247,244,238,0.6); margin-bottom: 20px; }
   .case-divider { width: 100%; height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 20px; }
-  .case-result-label {
-    font-size: 0.72rem; font-weight: 700;
-    letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 10px;
-  }
+  .case-result-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
   .case-result { font-size: 0.92rem; color: rgba(247,244,238,0.8); line-height: 1.6; }
   .case-result strong { color: var(--paper); }
 
   /* SKILLS */
   .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-  .skill-group {}
-  .skill-group-title {
-    font-size: 0.75rem; font-weight: 700;
-    letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 16px;
-    padding-bottom: 10px; border-bottom: 1px solid var(--border);
-  }
+  .skill-group-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
   .skill-list { display: flex; flex-direction: column; gap: 10px; }
-  .skill-item {
-    display: flex; align-items: center; gap: 10px;
-    font-size: 0.92rem;
-  }
-  .skill-dot {
-    width: 7px; height: 7px; border-radius: 50%;
-    background: var(--accent); flex-shrink: 0;
-  }
+  .skill-item { display: flex; align-items: center; gap: 10px; font-size: 0.92rem; }
+  .skill-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
 
   /* CONTACT */
   #contact { background: var(--paper); }
   .contact-box {
-    background: var(--card);
-    border: 1px solid var(--border);
+    background: var(--card); border: 1px solid var(--border);
     border-radius: 10px; padding: 64px;
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 60px; align-items: center;
   }
-  .contact-headline {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem; font-weight: 800;
-    line-height: 1.2; letter-spacing: -0.02em;
-    margin-bottom: 18px;
-  }
+  .contact-headline { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 18px; }
   .contact-headline em { color: var(--accent); font-style: normal; }
   .contact-sub { color: var(--muted); font-size: 0.97rem; }
-  .contact-links { display: flex; flex-direction: column; gap: 18px; }
+  .contact-links { display: flex; flex-direction: column; gap: 16px; }
   .contact-link {
     display: flex; align-items: center; gap: 16px;
     text-decoration: none; color: var(--ink);
-    padding: 18px 22px;
-    border: 1px solid var(--border); border-radius: 6px;
-    transition: all 0.2s;
+    padding: 18px 22px; border: 1px solid var(--border);
+    border-radius: 6px; transition: all 0.2s; background: var(--paper);
   }
   .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateX(4px); }
-  .contact-icon {
-    width: 40px; height: 40px; border-radius: 6px;
-    background: var(--tag-bg);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem; flex-shrink: 0;
-  }
-  .contact-link-info {}
-  .contact-link-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+  .contact-icon { width: 40px; height: 40px; border-radius: 6px; background: var(--tag-bg); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+  .contact-link-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 2px; }
   .contact-link-value { font-size: 0.95rem; font-weight: 500; }
 
   /* FOOTER */
   footer {
-    text-align: center; padding: 32px 60px;
-    border-top: 1px solid var(--border);
+    padding: 28px 60px; border-top: 1px solid var(--border);
     font-size: 0.82rem; color: var(--muted);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
   }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
 
   /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  .hero-left > * {
-    animation: fadeUp 0.7s ease both;
-  }
+  .hero-left > * { animation: fadeUp 0.7s ease both; }
   .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
   .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
   .hero-left > *:nth-child(3) { animation-delay: 0.3s; }
   .hero-left > *:nth-child(4) { animation-delay: 0.4s; }
   .hero-right { animation: fadeUp 0.9s 0.3s ease both; }
 
+  /* MOBILE */
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
     .nav-links { display: none; }
@@ -327,6 +255,7 @@
     .hero-grid, .about-grid, .cases-grid, .skills-grid { grid-template-columns: 1fr; }
     .exp-item { grid-template-columns: 1fr; gap: 10px; }
     .contact-box { grid-template-columns: 1fr; padding: 36px 24px; }
+    footer { padding: 24px; flex-direction: column; text-align: center; }
   }
 </style>
 </head>
@@ -347,7 +276,7 @@
 <section class="hero" id="home">
   <div class="hero-grid">
     <div class="hero-left">
-      <div class="hero-eyebrow">Available for Freelance</div>
+      <div class="hero-eyebrow">✦ Available for Freelance</div>
       <h1>Content Strategist &amp; <em>SEO Specialist</em></h1>
       <p class="hero-sub">I help brands grow organic traffic through technical content, data-driven SEO strategy, and AI-powered workflows — based in Bangalore, working globally.</p>
       <div class="btn-row">
@@ -367,11 +296,11 @@
         </div>
         <div class="stat-card">
           <div class="stat-num">65<span style="color:var(--accent)">+</span></div>
-          <div class="stat-label">Blogs in Google AI Overviews</div>
+          <div class="stat-label">Blogs featured in Google AI Overviews</div>
         </div>
         <div class="stat-card accent-card">
-          <div class="stat-num">#<span style="color:var(--accent)">1</span></div>
-          <div class="stat-label">India ranking for "top data visualization courses"</div>
+          <div class="stat-num">170<span>+</span></div>
+          <div class="stat-label">Blogs published at Great Learning</div>
         </div>
       </div>
     </div>
@@ -424,11 +353,15 @@
         </div>
         <div class="exp-body">
           <div class="exp-title">Content Strategist – SEO</div>
-          <p class="exp-desc">Lead data-driven SEO content strategy to grow organic traffic and expand presence in Google's AI Overviews. Built AI-powered workflows using Custom GPTs, reducing team content turnaround time by 30–40%. Conduct KT sessions to upskill the team on AI tools for analytics, interlinking, and content drafting.</p>
+          <p class="exp-desc">Drive organic search visibility and traffic through data-driven SEO content strategy while expanding presence in Google's AI Overviews. Published 170+ blogs and built AI-powered workflows using Custom GPTs, reducing team content turnaround time by 30–40%. Conduct KT sessions to upskill the team on AI tools for analytics, interlinking, and content drafting.</p>
           <div class="exp-results">
             <span class="result-pill">83,360 Sessions (+39.9%)</span>
+            <span class="result-pill">70.7K Total Users (+30.9%)</span>
             <span class="result-pill">63.3K New Users (+28.3%)</span>
-            <span class="result-pill">65+ AI Overview Placements</span>
+            <span class="result-pill">65 Blogs in AI Overviews</span>
+            <span class="result-pill light">170+ Blogs Published</span>
+            <span class="result-pill light">250+ Guest Posts Delivered</span>
+            <span class="result-pill light">333+ QCs Completed</span>
             <span class="result-pill light">Custom GPTs Built & Deployed</span>
             <span class="result-pill light">30–40% Faster Turnaround</span>
           </div>
@@ -457,13 +390,14 @@
           <div class="exp-company">GeeksforGeeks</div>
         </div>
         <div class="exp-body">
-          <div class="exp-title">Technical Content Writer</div>
-          <p class="exp-desc">Wrote 22+ in-depth technical articles on data structures, algorithms, and web technologies for one of the world's largest programming education platforms. Maintained high editorial standards with a focus on accuracy, depth, and reader value.</p>
+          <div class="exp-title">Technical Content Writer <span style="font-family:'DM Sans',sans-serif; font-size:0.78rem; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em; margin-left:8px;">Internship</span></div>
+          <p class="exp-desc">Authored 22+ articles on Backend Development, Databases, DSA, and AI/ML concepts, reaching 100K+ readers. Simplified complex backend workflows — APIs, database queries, server-side logic — with clear Python, JavaScript, and SQL code examples. Optimized tutorials for faster execution and clarity, improving developer adoption and learning outcomes.</p>
           <div class="exp-results">
             <span class="result-pill">22+ Articles Published</span>
-            <span class="result-pill light">DSA & Algorithms</span>
-            <span class="result-pill light">Web Technologies</span>
-            <span class="result-pill light">Global Audience</span>
+            <span class="result-pill">100K+ Readers Reached</span>
+            <span class="result-pill light">Backend Dev & Databases</span>
+            <span class="result-pill light">DSA & AI/ML</span>
+            <span class="result-pill light">Python · JavaScript · SQL</span>
           </div>
         </div>
       </div>
@@ -473,7 +407,7 @@
 </section>
 
 <!-- MONTHLY HIGHLIGHTS -->
-<section id="highlights" style="background: var(--card); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+<section id="highlights">
   <div class="section-inner">
     <div class="section-label">By the Numbers</div>
     <h2>Monthly Performance Highlights</h2>
@@ -511,7 +445,7 @@
     </div>
     <div style="background: var(--tag-bg); border:1px solid var(--border); border-radius:8px; padding:28px 32px; display:flex; gap:48px; flex-wrap:wrap;">
       <div>
-        <div style="font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin-bottom:8px;">Total (Oct '25 – Feb '26)</div>
+        <div style="font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin-bottom:8px;">Total (Sep '25 – Feb '26)</div>
         <div style="font-family:'Playfair Display',serif; font-size:2rem; font-weight:900; letter-spacing:-0.02em;">235,000<span style="color:var(--accent)">+</span> words</div>
       </div>
       <div>
@@ -540,7 +474,7 @@
         <div class="case-divider"></div>
         <div class="case-result-label">Results (Apr–Sep 2025 Review Cycle)</div>
         <div class="case-result">
-          <strong>83,360 sessions</strong> (+39.9%). <strong>63.3K new users</strong> (+28.3%). <strong>65+ blogs</strong> featured in Google AI Overviews. Achieved through high-value keyword targeting, comprehensive long-form content, and E-E-A-T optimization.
+          <strong>83,360 sessions</strong> (+39.9%) · <strong>70.7K total users</strong> (+30.9%) · <strong>63.3K new users</strong> (+28.3%) · <strong>65 blogs</strong> featured in Google AI Overviews · <strong>170+ blogs</strong> published. Achieved through high-value keyword targeting, comprehensive long-form content, and E-E-A-T optimization.
         </div>
       </div>
 
@@ -551,7 +485,7 @@
         <div class="case-divider"></div>
         <div class="case-result-label">Results (Oct 2025–Feb 2026)</div>
         <div class="case-result">
-          Delivered <strong>250+ guest posts</strong> across 5 months, averaging <strong>50 GPs/month</strong> with total word counts of 24K–64K per month. QC'd <strong>340+ articles</strong> across multiple stakeholders while maintaining publishing timelines and SEO alignment throughout.
+          Delivered <strong>250+ guest posts</strong> across 5 months, averaging <strong>50 GPs/month</strong> with total word counts of 24K–64K per month. QC'd <strong>333+ articles</strong> across multiple stakeholders while maintaining publishing timelines and SEO alignment throughout.
         </div>
       </div>
 
@@ -633,12 +567,12 @@
       </div>
       <div class="contact-links">
         <a href="mailto:vishalshevale058@gmail.com" class="contact-link">
-  <div class="contact-icon">✉️</div>
-  <div class="contact-link-info">
-    <div class="contact-link-label">Email</div>
-    <div class="contact-link-value">vishalshevale058@gmail.com</div>
-  </div>
-</a>
+          <div class="contact-icon">✉️</div>
+          <div class="contact-link-info">
+            <div class="contact-link-label">Email</div>
+            <div class="contact-link-value">vishalshevale058@gmail.com</div>
+          </div>
+        </a>
         <a href="https://www.linkedin.com/in/vishal-shevale-575832201/" target="_blank" class="contact-link">
           <div class="contact-icon">💼</div>
           <div class="contact-link-info">
@@ -657,3 +591,15 @@
     </div>
   </div>
 </section>
+
+<footer>
+  <span>© 2025 Vishal Shevale · Content Strategist & SEO Specialist · Bangalore, India</span>
+  <span>
+    <a href="mailto:vishalshevale058@gmail.com">Email</a> &nbsp;·&nbsp;
+    <a href="https://www.linkedin.com/in/vishal-shevale-575832201/" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
+    <a href="https://wa.me/917057179073" target="_blank">WhatsApp</a>
+  </span>
+</footer>
+
+</body>
+</html>
