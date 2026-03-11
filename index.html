@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Vishal Shevale — Content Strategist & SEO Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ink: #0e0e0e;
+    --paper: #f7f4ee;
+    --accent: #c8522a;
+    --muted: #7a7468;
+    --card: #ffffff;
+    --border: #e2ddd5;
+    --tag-bg: #f0ebe2;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 60px;
+    background: rgba(247,244,238,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .nav-links { display: flex; gap: 36px; }
+  .nav-links a {
+    text-decoration: none; color: var(--muted);
+    font-size: 0.88rem; font-weight: 500;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 120px 60px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(200,82,42,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+    max-width: 1100px; margin: 0 auto; width: 100%;
+  }
+  .hero-eyebrow {
+    font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block;
+    width: 28px; height: 1px; background: var(--accent);
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 900; line-height: 1.08;
+    letter-spacing: -0.03em; margin-bottom: 24px;
+  }
+  h1 em { color: var(--accent); font-style: normal; }
+  .hero-sub {
+    font-size: 1.05rem; color: var(--muted);
+    line-height: 1.75; margin-bottom: 40px;
+    max-width: 480px;
+  }
+  .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 28px; border-radius: 4px;
+    font-size: 0.88rem; font-weight: 600;
+    cursor: pointer; transition: all 0.2s;
+    text-decoration: none;
+  }
+  .btn-primary {
+    background: var(--ink); color: var(--paper);
+    border: 2px solid var(--ink);
+  }
+  .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+  .btn-outline {
+    background: transparent; color: var(--ink);
+    border: 2px solid var(--border);
+  }
+  .btn-outline:hover { border-color: var(--ink); }
+
+  .hero-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  }
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px 24px;
+    position: relative; overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .stat-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.07); }
+  .stat-card.accent-card { background: var(--ink); color: var(--paper); }
+  .stat-card.accent-card .stat-label { color: rgba(247,244,238,0.55); }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem; font-weight: 900;
+    line-height: 1; letter-spacing: -0.03em;
+    margin-bottom: 6px;
+  }
+  .stat-num span { color: var(--accent); }
+  .stat-label { font-size: 0.82rem; color: var(--muted); font-weight: 500; }
+
+  /* SECTIONS */
+  section { padding: 100px 60px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::before {
+    content: ''; display: block;
+    width: 20px; height: 1px; background: var(--accent);
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 800; line-height: 1.15;
+    letter-spacing: -0.03em; margin-bottom: 56px;
+  }
+
+  /* ABOUT */
+  #about { background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: start; }
+  .about-aside {}
+  .about-aside-label {
+    font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 14px;
+  }
+  .about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+  .tag {
+    background: var(--tag-bg); color: var(--ink);
+    border: 1px solid var(--border);
+    padding: 5px 13px; border-radius: 100px;
+    font-size: 0.8rem; font-weight: 500;
+  }
+  .about-body p { color: #3a3530; margin-bottom: 18px; font-size: 1.02rem; }
+  .about-body p:last-child { margin-bottom: 0; }
+  .about-body strong { color: var(--ink); }
+
+  /* EXPERIENCE */
+  .exp-list { display: flex; flex-direction: column; gap: 0; }
+  .exp-item {
+    display: grid; grid-template-columns: 200px 1fr;
+    gap: 40px; padding: 40px 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .exp-item:first-child { padding-top: 0; }
+  .exp-meta { padding-top: 4px; }
+  .exp-date {
+    font-size: 0.8rem; font-weight: 600;
+    color: var(--muted); letter-spacing: 0.04em;
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .exp-company {
+    font-size: 0.88rem; font-weight: 600; color: var(--accent);
+  }
+  .exp-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem; font-weight: 700;
+    margin-bottom: 14px; letter-spacing: -0.01em;
+  }
+  .exp-desc { color: #3a3530; font-size: 0.97rem; margin-bottom: 18px; }
+  .exp-results { display: flex; flex-wrap: wrap; gap: 10px; }
+  .result-pill {
+    background: var(--ink); color: var(--paper);
+    padding: 5px 14px; border-radius: 4px;
+    font-size: 0.8rem; font-weight: 600;
+  }
+  .result-pill.light {
+    background: var(--tag-bg); color: var(--ink);
+    border: 1px solid var(--border);
+  }
+
+  /* CASE STUDIES */
+  #cases { background: var(--ink); color: var(--paper); }
+  #cases h2 { color: var(--paper); }
+  #cases .section-label { color: #c8522a; }
+  .cases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .case-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px; padding: 36px 32px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .case-card:hover { background: rgba(255,255,255,0.07); transform: translateY(-2px); }
+  .case-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 900;
+    color: rgba(200,82,42,0.35);
+    line-height: 1; margin-bottom: 16px;
+  }
+  .case-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; font-weight: 700;
+    margin-bottom: 12px; line-height: 1.3;
+    color: var(--paper);
+  }
+  .case-problem { font-size: 0.88rem; color: rgba(247,244,238,0.6); margin-bottom: 20px; }
+  .case-divider { width: 100%; height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 20px; }
+  .case-result-label {
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 10px;
+  }
+  .case-result { font-size: 0.92rem; color: rgba(247,244,238,0.8); line-height: 1.6; }
+  .case-result strong { color: var(--paper); }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .skill-group {}
+  .skill-group-title {
+    font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 16px;
+    padding-bottom: 10px; border-bottom: 1px solid var(--border);
+  }
+  .skill-list { display: flex; flex-direction: column; gap: 10px; }
+  .skill-item {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.92rem;
+  }
+  .skill-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent); flex-shrink: 0;
+  }
+
+  /* CONTACT */
+  #contact { background: var(--paper); }
+  .contact-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px; padding: 64px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: center;
+  }
+  .contact-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; font-weight: 800;
+    line-height: 1.2; letter-spacing: -0.02em;
+    margin-bottom: 18px;
+  }
+  .contact-headline em { color: var(--accent); font-style: normal; }
+  .contact-sub { color: var(--muted); font-size: 0.97rem; }
+  .contact-links { display: flex; flex-direction: column; gap: 18px; }
+  .contact-link {
+    display: flex; align-items: center; gap: 16px;
+    text-decoration: none; color: var(--ink);
+    padding: 18px 22px;
+    border: 1px solid var(--border); border-radius: 6px;
+    transition: all 0.2s;
+  }
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateX(4px); }
+  .contact-icon {
+    width: 40px; height: 40px; border-radius: 6px;
+    background: var(--tag-bg);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .contact-link-info {}
+  .contact-link-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+  .contact-link-value { font-size: 0.95rem; font-weight: 500; }
+
+  /* FOOTER */
+  footer {
+    text-align: center; padding: 32px 60px;
+    border-top: 1px solid var(--border);
+    font-size: 0.82rem; color: var(--muted);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-left > * {
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.4s; }
+  .hero-right { animation: fadeUp 0.9s 0.3s ease both; }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    section, .hero { padding: 80px 24px; }
+    .hero-grid, .about-grid, .cases-grid, .skills-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 10px; }
+    .contact-box { grid-template-columns: 1fr; padding: 36px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">VS</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#cases">Case Studies</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Available for Freelance</div>
+      <h1>Content Strategist &amp; <em>SEO Specialist</em></h1>
+      <p class="hero-sub">I help brands grow organic traffic through technical content, data-driven SEO strategy, and AI-powered workflows — based in Bangalore, working globally.</p>
+      <div class="btn-row">
+        <a href="#cases" class="btn btn-primary">View Case Studies →</a>
+        <a href="#contact" class="btn btn-outline">Let's Work Together</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stats">
+        <div class="stat-card accent-card">
+          <div class="stat-num">250<span>+</span></div>
+          <div class="stat-label">Guest posts delivered (Oct '25–Feb '26)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">+<span style="color:var(--accent)">39.9</span>%</div>
+          <div class="stat-label">Organic traffic growth (Apr–Sep '25)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">65<span style="color:var(--accent)">+</span></div>
+          <div class="stat-label">Blogs in Google AI Overviews</div>
+        </div>
+        <div class="stat-card accent-card">
+          <div class="stat-num">#<span style="color:var(--accent)">1</span></div>
+          <div class="stat-label">India ranking for "top data visualization courses"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-aside">
+        <div class="about-aside-label">Based in</div>
+        <p style="font-weight:600; margin-bottom:28px;">📍 Bangalore, India</p>
+        <div class="about-aside-label">Specialties</div>
+        <div class="about-tags">
+          <span class="tag">Technical SEO</span>
+          <span class="tag">Content Strategy</span>
+          <span class="tag">WordPress</span>
+          <span class="tag">On-page SEO</span>
+          <span class="tag">AI Workflows</span>
+          <span class="tag">Technical Writing</span>
+          <span class="tag">HTML/CSS</span>
+        </div>
+        <div class="about-aside-label">Education</div>
+        <p style="font-size:0.92rem; color:var(--muted);">B.E. in Computer Science Engineering</p>
+      </div>
+      <div class="about-body">
+        <div class="section-label">Who I Am</div>
+        <h2 style="margin-bottom:28px;">Turning complex tech into <em style="color:var(--accent);font-style:normal;">content that ranks</em></h2>
+        <p>I'm a Content Strategist and SEO Specialist with a background in Computer Science Engineering. I specialize in creating <strong>SEO-driven technical content</strong> that makes complex topics — Python, machine learning, AI, data science — accessible and discoverable.</p>
+        <p>My edge is the combination of <strong>technical depth and SEO precision</strong>. I don't just write; I engineer content to rank, retain readers, and convert. At Great Learning, I've built and scaled content pipelines for global audiences, achieving consistent organic growth quarter over quarter.</p>
+        <p>I also bring <strong>AI-powered efficiency</strong> to every team I work with — building Custom GPTs, creating workflow guides, and cutting content turnaround time significantly. Beyond content, my HTML/CSS skills let me bridge the gap between SEO, writing, and web implementation.</p>
+        <p>My goal: grow at the intersection of <strong>SEO, technology, and product building</strong> — and help clients do the same.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label">Career</div>
+    <h2>Work Experience</h2>
+    <div class="exp-list">
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Jan 2025 – Present</div>
+          <div class="exp-company">Great Learning</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title">Content Strategist – SEO</div>
+          <p class="exp-desc">Lead data-driven SEO content strategy to grow organic traffic and expand presence in Google's AI Overviews. Built AI-powered workflows using Custom GPTs, reducing team content turnaround time by 30–40%. Conduct KT sessions to upskill the team on AI tools for analytics, interlinking, and content drafting.</p>
+          <div class="exp-results">
+            <span class="result-pill">83,360 Sessions (+39.9%)</span>
+            <span class="result-pill">63.3K New Users (+28.3%)</span>
+            <span class="result-pill">65+ AI Overview Placements</span>
+            <span class="result-pill light">Custom GPTs Built & Deployed</span>
+            <span class="result-pill light">30–40% Faster Turnaround</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Sep 2024 – Dec 2024</div>
+          <div class="exp-company">Great Learning</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title">SEO Intern</div>
+          <p class="exp-desc">Collaborated with the content team to write tutorials and blogs optimized for organic search. Focused on on-page SEO best practices to drive traffic and create user-friendly content promoting Great Learning's course catalog.</p>
+          <div class="exp-results">
+            <span class="result-pill light">On-page SEO Optimization</span>
+            <span class="result-pill light">Tutorial & Blog Writing</span>
+            <span class="result-pill light">Organic Traffic Growth</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Apr 2024 – Oct 2024</div>
+          <div class="exp-company">GeeksforGeeks</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title">Technical Content Writer</div>
+          <p class="exp-desc">Wrote 22+ in-depth technical articles on data structures, algorithms, and web technologies for one of the world's largest programming education platforms. Maintained high editorial standards with a focus on accuracy, depth, and reader value.</p>
+          <div class="exp-results">
+            <span class="result-pill">22+ Articles Published</span>
+            <span class="result-pill light">DSA & Algorithms</span>
+            <span class="result-pill light">Web Technologies</span>
+            <span class="result-pill light">Global Audience</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MONTHLY HIGHLIGHTS -->
+<section id="highlights" style="background: var(--card); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="section-inner">
+    <div class="section-label">By the Numbers</div>
+    <h2>Monthly Performance Highlights</h2>
+    <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:20px; margin-bottom:48px;">
+      <div class="stat-card" style="text-align:center;">
+        <div class="stat-num" style="font-size:2rem;">Feb <span style="color:var(--accent)">'26</span></div>
+        <div style="margin:14px 0 8px; font-weight:700; font-size:0.95rem;">50 Guest Posts</div>
+        <div class="stat-label">64,027 words · 143 QCs · SQL Compiler launched (Page 2)</div>
+      </div>
+      <div class="stat-card" style="text-align:center;">
+        <div class="stat-num" style="font-size:2rem;">Jan <span style="color:var(--accent)">'26</span></div>
+        <div style="margin:14px 0 8px; font-weight:700; font-size:0.95rem;">50 Guest Posts</div>
+        <div class="stat-label">62,969 words · 47 QCs · #1 India rank for "top data visualization courses"</div>
+      </div>
+      <div class="stat-card" style="text-align:center;">
+        <div class="stat-num" style="font-size:2rem;">Dec <span style="color:var(--accent)">'25</span></div>
+        <div style="margin:14px 0 8px; font-weight:700; font-size:0.95rem;">50 Guest Posts</div>
+        <div class="stat-label">91 total contributions · 41 QCs across stakeholders</div>
+      </div>
+      <div class="stat-card" style="text-align:center;">
+        <div class="stat-num" style="font-size:2rem;">Nov <span style="color:var(--accent)">'25</span></div>
+        <div style="margin:14px 0 8px; font-weight:700; font-size:0.95rem;">27 Guest Posts</div>
+        <div class="stat-label">31,941 words · 64 QCs · KT delivered to external writer</div>
+      </div>
+      <div class="stat-card" style="text-align:center;">
+        <div class="stat-num" style="font-size:2rem;">Oct <span style="color:var(--accent)">'25</span></div>
+        <div style="margin:14px 0 8px; font-weight:700; font-size:0.95rem;">22 Content Pieces</div>
+        <div class="stat-label">26,323 words · 38 QCs · 4 blogs + 18 guest posts</div>
+      </div>
+      <div class="stat-card" style="text-align:center;">
+        <div class="stat-num" style="font-size:2rem;">Sep <span style="color:var(--accent)">'25</span></div>
+        <div style="margin:14px 0 8px; font-weight:700; font-size:0.95rem;">39 Content Pieces</div>
+        <div class="stat-label">26,643 words · 6 blogs · 16 GLA pages · 12 QCs</div>
+      </div>
+    </div>
+    <div style="background: var(--tag-bg); border:1px solid var(--border); border-radius:8px; padding:28px 32px; display:flex; gap:48px; flex-wrap:wrap;">
+      <div>
+        <div style="font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin-bottom:8px;">Total (Oct '25 – Feb '26)</div>
+        <div style="font-family:'Playfair Display',serif; font-size:2rem; font-weight:900; letter-spacing:-0.02em;">235,000<span style="color:var(--accent)">+</span> words</div>
+      </div>
+      <div>
+        <div style="font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin-bottom:8px;">Content Pieces Delivered</div>
+        <div style="font-family:'Playfair Display',serif; font-size:2rem; font-weight:900; letter-spacing:-0.02em;">250<span style="color:var(--accent)">+</span></div>
+      </div>
+      <div>
+        <div style="font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin-bottom:8px;">Quality Checks Completed</div>
+        <div style="font-family:'Playfair Display',serif; font-size:2rem; font-weight:900; letter-spacing:-0.02em;">333<span style="color:var(--accent)">+</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="cases">
+  <div class="section-inner">
+    <div class="section-label">Results</div>
+    <h2>Case Studies</h2>
+    <div class="cases-grid">
+
+      <div class="case-card">
+        <div class="case-num">01</div>
+        <div class="case-title">Driving 39.9% Organic Traffic Growth at Great Learning</div>
+        <p class="case-problem">Challenge: Grow organic search visibility for a competitive EdTech brand while expanding into Google's AI Overviews — a new format demanding highly authoritative, structured content.</p>
+        <div class="case-divider"></div>
+        <div class="case-result-label">Results (Apr–Sep 2025 Review Cycle)</div>
+        <div class="case-result">
+          <strong>83,360 sessions</strong> (+39.9%). <strong>63.3K new users</strong> (+28.3%). <strong>65+ blogs</strong> featured in Google AI Overviews. Achieved through high-value keyword targeting, comprehensive long-form content, and E-E-A-T optimization.
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-num">02</div>
+        <div class="case-title">High-Volume Content at Scale — 250+ Guest Posts Delivered</div>
+        <p class="case-problem">Challenge: Sustain consistent, high-quality guest post delivery across multiple program initiatives (GLA, PG, Backlinks) month after month without compromising SEO standards or editorial quality.</p>
+        <div class="case-divider"></div>
+        <div class="case-result-label">Results (Oct 2025–Feb 2026)</div>
+        <div class="case-result">
+          Delivered <strong>250+ guest posts</strong> across 5 months, averaging <strong>50 GPs/month</strong> with total word counts of 24K–64K per month. QC'd <strong>340+ articles</strong> across multiple stakeholders while maintaining publishing timelines and SEO alignment throughout.
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-num">03</div>
+        <div class="case-title">Built & Ranked an Online SQL Compiler from Scratch</div>
+        <p class="case-problem">Challenge: Develop a live, functional developer tool independently and drive search visibility for a competitive, high-intent keyword in the programming tools space.</p>
+        <div class="case-divider"></div>
+        <div class="case-result-label">Results (Feb 2026)</div>
+        <div class="case-result">
+          Built and deployed a fully functional <strong>Online SQL Compiler</strong> now live on the site. Currently <strong>ranking on Page 2</strong> for the keyword "online sql compiler" — actively being optimized toward Page 1.
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-num">04</div>
+        <div class="case-title">AI Workflows & #1 India Ranking Milestone</div>
+        <p class="case-problem">Challenge: (1) Reduce team content turnaround time using AI without disrupting existing workflows. (2) Win highly competitive keyword rankings in the EdTech SEO space.</p>
+        <div class="case-divider"></div>
+        <div class="case-result-label">Results</div>
+        <div class="case-result">
+          Built <strong>Custom GPTs</strong> for the content team, cutting turnaround by <strong>30–40%</strong>. Achieved <strong>#1 ranking in India</strong> for "top data visualization courses." Standardized GP quality via KT sessions and updated guideline documents across the team.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label">Capabilities</div>
+    <h2>Skills &amp; Tools</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">Core Skills</div>
+        <div class="skill-list">
+          <div class="skill-item"><span class="skill-dot"></span>Technical SEO & On-page Optimization</div>
+          <div class="skill-item"><span class="skill-dot"></span>Content Strategy & Planning</div>
+          <div class="skill-item"><span class="skill-dot"></span>Technical Writing & Blogging</div>
+          <div class="skill-item"><span class="skill-dot"></span>Keyword Research & Clustering</div>
+          <div class="skill-item"><span class="skill-dot"></span>AI Overview Optimization</div>
+          <div class="skill-item"><span class="skill-dot"></span>WordPress CMS Management</div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">SEO & Analytics Tools</div>
+        <div class="skill-list">
+          <div class="skill-item"><span class="skill-dot"></span>Google Search Console</div>
+          <div class="skill-item"><span class="skill-dot"></span>Google Analytics</div>
+          <div class="skill-item"><span class="skill-dot"></span>Ahrefs / SEMrush</div>
+          <div class="skill-item"><span class="skill-dot"></span>WordPress</div>
+          <div class="skill-item"><span class="skill-dot"></span>Notion</div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Tech & AI</div>
+        <div class="skill-list">
+          <div class="skill-item"><span class="skill-dot"></span>ChatGPT & Custom GPT Building</div>
+          <div class="skill-item"><span class="skill-dot"></span>AI Workflow Design</div>
+          <div class="skill-item"><span class="skill-dot"></span>HTML & CSS</div>
+          <div class="skill-item"><span class="skill-dot"></span>Website Customization</div>
+          <div class="skill-item"><span class="skill-dot"></span>Python (basics)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-box">
+      <div>
+        <div class="section-label">Get In Touch</div>
+        <div class="contact-headline">Ready to grow your <em>organic presence?</em></div>
+        <p class="contact-sub">I'm open to freelance projects in technical SEO, content strategy, and AI-powered content workflows. Let's talk about what you need.</p>
+      </div>
+      <div class="contact-links">
+        <a href="/cdn-cgi/l/email-protection#bbcdd2c8d3dad7fbded6dad2d795d8d4d6" class="contact-link">
+          <div class="contact-icon">✉️</div>
+          <div class="contact-link-info">
+            <div class="contact-link-label">Email</div>
+            <div class="contact-link-value"><span class="__cf_email__" data-cfemail="1d6b746e757c715d78707c7471337e7270">[email&#160;protected]</span></div>
+          </div>
+        </a>
+        <a href="https://linkedin.com/in/vishalshevale" target="_blank" class="contact-link">
+          <div class="contact-icon">💼</div>
+          <div class="contact-link-info">
+            <div class="contact-link-label">LinkedIn</div>
+            <div class="contact-link-value">linkedin.com/in/vishalshevale</div>
+          </div>
+        </a>
+        <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="contact-link">
+          <div class="contact-icon">💬</div>
+          <div class="contact-link-info">
+            <div class="contact-link-label">WhatsApp</div>
+            <div class="contact-link-value">Message me directly</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
